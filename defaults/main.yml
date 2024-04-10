@@ -1,0 +1,8 @@
+---
+
+# Local mirror location
+apt_local_mirror: >-
+  https://localmirror.example.com
+
+# Should backports be disabled
+apt_local_disable_backports: false

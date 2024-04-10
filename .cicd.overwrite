@@ -1,0 +1,72 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-apt_local
+  role_short: apt_local
+  role_description: |
+    Use alternative/local mirror for Dbian/Ubuntu packages
+  collections: []
+
+# Platforms
+platforms:
+  rhel7:
+    ci: false
+    supported: false
+  rhel8:
+    ci: false
+    supported: false
+  rhel9:
+    ci: false
+    supported: false
+  centos7:
+    name: CentOS 7
+    ci: false
+    supported: false
+  rockylinux8:
+    name: RockyLinux 8
+    ci: false
+    supported: false
+  rockylinux9:
+    name: RockyLinux 9
+    ci: false
+    supported: false
+  oraclelinux8:
+    name: OracleLinux 8
+    ci: false
+    supported: false
+  oraclelinux9:
+    name: OracleLinux 9
+    ci: false
+    supported: false
+  almalinux8:
+    name: AlmaLinux 8
+    ci: false
+    supported: false
+  almalinux9:
+    name: AlmaLinux 9
+    ci: false
+    supported: false
+  sles15:
+    ci: false
+    supported: false
+  opensuse15:
+    name: openSUSE Leap 15
+    ci: false
+    supported: false
+  fedora37:
+    name: Fedora 37
+    ci: false
+    supported: false
+  fedora38:
+    name: Fedora 38
+    ci: false
+    supported: false
+  alpine3:
+    name: Alpine 3
+    ci: false
+    supported: false
+
+molecule:
+  requirements:
+    roles_extra: []
