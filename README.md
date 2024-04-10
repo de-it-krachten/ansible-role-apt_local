@@ -3,7 +3,7 @@
 
 # ansible-role-apt_local
 
-Use alternative/local mirror for Dbian/Ubuntu packages
+Use alternative/local mirror for Ubuntu packages
 
 
 
@@ -19,8 +19,6 @@ None
 
 Supported platforms
 
-- Debian 11 (Bullseye)
-- Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 
