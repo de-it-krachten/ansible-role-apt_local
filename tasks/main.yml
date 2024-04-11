@@ -1,0 +1,26 @@
+---
+
+- name: Make sure it is not run on anything but Debian/Ubuntu
+  ansible.builtin.debug:
+    msg: "Nothing to do as this is not Debian/Ubuntu"
+  when: ansible_os_family != 'Debian'
+
+- name: Perform steps
+  when: ansible_os_family == 'Debian'
+  block:
+
+    - name: Point ubuntu repositories to local mirror
+      ansible.builtin.replace:
+        path: /etc/apt/sources.list
+        regexp: "^deb http(s)*://([a-z0-9\\.\\-_]+)\\.ubuntu\\.com/([a-z0-9\\.\\-_]+) (.*)"
+        replace: "deb {{ apt_local_mirror }} \\4"
+        backup: yes
+      register: __local_mirror
+
+    - name: Disable backports
+      ansible.builtin.replace:
+        path: /etc/apt/sources.list
+        regexp: "^deb ({{ apt_local_mirror }} {{ ansible_distribution_release }}-backports) (.*)"
+        replace: "#deb \\1 \\2"
+        backup: "{{ False if __local_mirror.changed else True }}"
+      when: apt_local_disable_backports | bool

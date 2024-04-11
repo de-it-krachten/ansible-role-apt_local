@@ -1,0 +1,67 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-apt_local
+  role_short: apt_local
+  role_description: |
+    Use alternative/local mirror for Ubuntu packages
+  collections: []
+
+# Platforms
+platforms:
+  rhel7:
+    ci: false
+    supported: false
+  rhel8:
+    ci: false
+    supported: false
+  rhel9:
+    ci: false
+    supported: false
+  centos7:
+    ci: false
+    supported: false
+  rockylinux8:
+    ci: false
+    supported: false
+  rockylinux9:
+    ci: false
+    supported: false
+  oraclelinux8:
+    ci: false
+    supported: false
+  oraclelinux9:
+    ci: false
+    supported: false
+  almalinux8:
+    ci: false
+    supported: false
+  almalinux9:
+    ci: false
+    supported: false
+  sles15:
+    ci: false
+    supported: false
+  opensuse15:
+    ci: false
+    supported: false
+  debian11:
+    ci: false
+    supported: false
+  debian12:
+    ci: false
+    supported: false
+  fedora37:
+    ci: false
+    supported: false
+  fedora38:
+    ci: false
+    supported: false
+  alpine3:
+    ci: false
+    supported: false
+
+molecule:
+  requirements:
+    roles_extra: []
