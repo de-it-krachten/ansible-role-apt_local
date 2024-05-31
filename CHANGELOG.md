@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.0.0...v1.1.0) (2024-05-31)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([9e955a3](https://github.com/de-it-krachten/ansible-role-apt_local/commit/9e955a36940156047395dc66b5d909402103c24a))
+
 # 1.0.0 (2024-04-11)
 
 
