@@ -13,4 +13,7 @@ galaxy_info:
       versions:
         - focal
         - jammy
+    - name: Fedora
+      versions:
+        - all
 dependencies: []
