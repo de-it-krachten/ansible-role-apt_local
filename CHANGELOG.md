@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.1.0...v1.2.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([7087897](https://github.com/de-it-krachten/ansible-role-apt_local/commit/7087897335f11c34a544d8dd07f25c855a7527d3))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.0.0...v1.1.0) (2024-05-31)
 
 
