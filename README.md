@@ -19,10 +19,15 @@ None
 
 Supported platforms
 
+- Red Hat Enterprise Linux 10<sup>1</sup>
+- RockyLinux 10
+- OracleLinux 10
+- AlmaLinux 10
+- Debian 13 (Trixie)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 41
+- Fedora 42
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
