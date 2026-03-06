@@ -25,6 +25,7 @@ Supported platforms
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
 
+
 ## Role Variables
 ### defaults/main.yml
 <pre><code>
@@ -54,6 +55,10 @@ apt_local_disable_backports: false
 - name: sample playbook for role 'apt_local'
   hosts: all
   become: 'yes'
+  vars:
+    molecule_driver: '{{ lookup(''env'', ''MOLECULE_DRIVER_NAME'') }}'
+    apt_local_host: mirror.hetzner.com
+    apt_local_mirror: https://{{ apt_local_host }}/ubuntu
   tasks:
     - name: Include role 'apt_local'
       ansible.builtin.include_role:
