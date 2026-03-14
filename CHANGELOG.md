@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.2.0...v1.3.0) (2026-03-14)
+
+
+### Features
+
+* Add support for rollback to official server ([9ec44eb](https://github.com/de-it-krachten/ansible-role-apt_local/commit/9ec44ebdfab8fac4f66055e451abbefc32113675))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.1.0...v1.2.0) (2024-12-29)
 
 
