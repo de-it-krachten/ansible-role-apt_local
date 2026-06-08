@@ -6,7 +6,7 @@
   vars:
     molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
     apt_local_host: mirror.hetzner.com
-    apt_local_mirror: "https://{{ apt_local_host }}/ubuntu"
+    apt_local_mirror: https://{{ apt_local_host }}/ubuntu
   tasks:
     - name: Include role 'ansible-role-apt_local'
       ansible.builtin.include_role:
