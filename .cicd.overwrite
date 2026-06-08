@@ -73,6 +73,7 @@ platforms:
 
 # Platforms
 molecule:
+  phase1: []
   requirements:
     roles_extra: []
   converge:
