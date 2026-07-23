@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.3.0...v1.4.0) (2026-07-23)
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([2c90552](https://github.com/de-it-krachten/ansible-role-apt_local/commit/2c90552d900767ab05672f93729665736b881409))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-apt_local/compare/v1.2.0...v1.3.0) (2026-03-14)
 
 
