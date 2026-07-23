@@ -61,15 +61,19 @@ platforms:
   ubuntu2404:
     supported: false
     ci: false
-  fedora42:
+  ubuntu2604:
     supported: false
     ci: false
   fedora43:
     supported: false
     ci: false
+  fedora44:
+    supported: false
+    ci: false
 
 # Platforms
 molecule:
+  phase1: []
   requirements:
     roles_extra: []
   converge:

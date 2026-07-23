@@ -15,7 +15,7 @@
     - name: Disable backports
       ansible.builtin.replace:
         path: /etc/apt/sources.list
-        regexp: "^deb ({{ apt_local_mirror }} {{ ansible_distribution_release }}-backports) (.*)"
+        regexp: "^deb ({{ apt_local_mirror }} {{ ansible_facts.distribution_release }}-backports) (.*)"
         replace: "#deb \\1 \\2"
         backup: "{{ False if __local_mirror.changed else True }}"
       when: apt_local_disable_backports | bool
@@ -28,13 +28,13 @@
       ansible.builtin.replace:
         path: /etc/apt/sources.list
         # Match release, -updates, and -backports, but NOT -security
-        regexp: '{{ apt_local_mirror }}(/)*\s+{{ ansible_distribution_release }}(?!(?:-security))(-[\w]+)?\s+(.*)'
-        replace: 'http://archive.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}\2 \3'
+        regexp: '{{ apt_local_mirror }}(/)*\s+{{ ansible_facts.distribution_release }}(?!(?:-security))(-[\w]+)?\s+(.*)'
+        replace: 'http://archive.ubuntu.com/ubuntu/ {{ ansible_facts.distribution_release }}\2 \3'
         backup: yes
 
     - name: Replace internal mirror with public Ubuntu mirrors (security)
       ansible.builtin.replace:
         path: /etc/apt/sources.list
-        regexp: '{{ apt_local_mirror }}(/)*\s+{{ ansible_distribution_release }}-security\s+(.*)'
-        replace: 'http://security.ubuntu.com/ubuntu/ {{ ansible_distribution_release }}-security \2'
+        regexp: '{{ apt_local_mirror }}(/)*\s+{{ ansible_facts.distribution_release }}-security\s+(.*)'
+        replace: 'http://security.ubuntu.com/ubuntu/ {{ ansible_facts.distribution_release }}-security \2'
         backup: yes

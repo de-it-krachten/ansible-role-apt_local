@@ -3,9 +3,9 @@
 - name: Make sure it is not run on anything but Debian/Ubuntu
   ansible.builtin.debug:
     msg: "Nothing to do as this is not Ubuntu"
-  when: ansible_distribution != 'Ubuntu'
+  when: ansible_facts.distribution != 'Ubuntu'
 
 - name: Execute on Ubuntu
   ansible.builtin.include_tasks:
     file: ubuntu.yml
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts.distribution == 'Ubuntu'
