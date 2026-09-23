@@ -67,8 +67,8 @@
     - name: Disable backports
       ansible.builtin.replace:
         path: /etc/apt/sources.list.d/ubuntu.sources
-        regexp: ' {{ ansible_facts['distribution_release'] }}-backports'
-        replace: ''
+        regexp: " {{ ansible_facts['distribution_release'] }}-backports"
+        replace: ""
         backup: "{{ False if __local_mirror.changed else True }}"
       when: apt_local_disable_backports | bool
 
