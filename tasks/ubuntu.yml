@@ -3,7 +3,7 @@
 # Ubuntu 20/22
 - name: Switch to local mirror
   when:
-    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['ansible_distribution'] == 'Ubuntu'
     - ansible_facts['distribution_major_version'] | int < 24
     - apt_local_use_mirror | bool
   block:
@@ -26,7 +26,7 @@
 
 - name: Switch back to official mirrors
   when:
-    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['ansible_distribution'] == 'Ubuntu'
     - ansible_facts['distribution_major_version'] | int < 24
     - not apt_local_use_mirror | bool
   block:
@@ -49,7 +49,7 @@
 # Ubuntu 24+
 - name: Switch to local mirror
   when:
-    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['ansible_distribution'] == 'Ubuntu'
     - ansible_facts['distribution_major_version'] | int >= 24
     - apt_local_use_mirror | bool
   block:
@@ -69,3 +69,5 @@
         replace: ''
         backup: "{{ False if __local_mirror.changed else True }}"
       when: apt_local_disable_backports | bool
+
+- fail: msg=xxx
