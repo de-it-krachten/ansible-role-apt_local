@@ -1,7 +1,11 @@
 ---
 
+# Ubuntu 20/22
 - name: Switch to local mirror
-  when: apt_local_use_mirror | bool
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] | int < 24
+    - apt_local_use_mirror | bool
   block:
 
     - name: Point ubuntu repositories to local mirror
@@ -21,7 +25,10 @@
       when: apt_local_disable_backports | bool
 
 - name: Switch back to official mirrors
-  when: not apt_local_use_mirror | bool
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] | int < 24
+    - not apt_local_use_mirror | bool
   block:
 
     - name: Replace internal mirror with public Ubuntu mirrors (non-security)
@@ -38,3 +45,27 @@
         regexp: '{{ apt_local_mirror }}(/)*\s+{{ ansible_facts.distribution_release }}-security\s+(.*)'
         replace: 'http://security.ubuntu.com/ubuntu/ {{ ansible_facts.distribution_release }}-security \2'
         backup: yes
+
+# Ubuntu 24+
+- name: Switch to local mirror
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] | int >= 24
+    - apt_local_use_mirror | bool
+  block:
+
+    - name: Point ubuntu repositories to local mirror
+      ansible.builtin.replace:
+        path: /etc/apt/sources.list.d/ubuntu.sources
+        regexp: '^URIs:\s+http(s)*://([a-z0-9\.\-_]+)\.ubuntu\.com/([a-z0-9\.\-_]+)(/)*\s+(.*)'
+        replace: "URIs: {{ apt_local_mirror }}/ \\5"
+        backup: yes
+      register: __local_mirror
+
+    - name: Disable backports
+      ansible.builtin.replace:
+        path: /etc/apt/sources.list.d/ubuntu.sources
+        regexp: ' {{ ansible_facts.distribution_release }}-backports'
+        replace: ''
+        backup: "{{ False if __local_mirror.changed else True }}"
+      when: apt_local_disable_backports | bool
