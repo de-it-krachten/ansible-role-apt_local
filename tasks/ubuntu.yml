@@ -57,10 +57,10 @@
     - name: Point ubuntu repositories to local mirror
       ansible.builtin.replace:
         path: /etc/apt/sources.list.d/ubuntu.sources
-        #regexp: '^URIs:\s+http(s)*://([a-z0-9\.\-_]+)\.ubuntu\.com/([a-z0-9\.\-_]+)(/)*\s+(.*)'
-        #replace: "URIs: {{ apt_local_mirror }}/ \\5"
+        # regexp: '^URIs:\s+http(s)*://([a-z0-9\.\-_]+)\.ubuntu\.com/([a-z0-9\.\-_]+)(/)*\s+(.*)'
+        # replace: "URIs: {{ apt_local_mirror }}/ \\5"
         regexp: '^URIs:\s+http(s)*://[a-z0-9\.\-_]+\.ubuntu\.com/[a-z0-9\.\-_]*/?'
-        replace: 'URIs: {{ apt_local_mirror }}/'   
+        replace: 'URIs: {{ apt_local_mirror }}/'
         backup: yes
       register: __local_mirror
 
